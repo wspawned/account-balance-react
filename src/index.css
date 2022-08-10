@@ -4,4 +4,23 @@
   box-sizing: border-box;
 }
 
+body {
+  padding: 40px;
+}
 
+h1 {
+  text-align: center;
+}
+
+.income-expense {
+  display: flex;
+  justify-content: space-around;
+}
+
+h2 {
+  display: inline-block;
+}
+
+label {
+  display: block;
+}
