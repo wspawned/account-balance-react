@@ -3,8 +3,8 @@ const History = (props) => {
 
     return (
       <div className="list-item">
-        <p> {props.text} </p>
-        <p> {props.amount} $ </p>
+        <p> {props.text} : </p>
+        <p> {props.amount}  $ </p>
       </div>
     );
 }

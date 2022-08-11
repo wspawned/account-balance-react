@@ -9,11 +9,33 @@ const Account = () => {
     const [amount, setAmount] = useState("");
     const [history, setHistory] = useState([]);
 
+    const calculateIncome = () => {
+        let inc = 0;
+        for(const move of history) {
+            if(+move.amount>= 0) {
+                inc += (+move.amount)
+            }
+        }
+        return(inc)
+    }
+
+    const calculateExpense = () => {
+        let exp = 0;
+        for(const move of history) {
+            if(+move.amount < 0) {
+                exp += (+move.amount)
+            }
+        }
+        return(exp)
+    }
+
     return ( 
         <div>
 
             <Balance
             history = {history}
+            income= { () => calculateIncome()}
+            expense= { () => calculateExpense() }
             />
 
             <div className="history">
