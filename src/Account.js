@@ -1,26 +1,33 @@
 import { useState } from "react";
+import Balance from "./Balance";
+import History from "./History";
 
 const Account = () => {
 
-    const income = 5
-    const expense = 3
-    const balance = income - expense
-
+    const [key, setKey] = useState(0)
     const [text, setText] = useState("");
     const [amount, setAmount] = useState("");
     const [history, setHistory] = useState([]);
 
     return ( 
         <div>
-            <h1>YOUR BALANCE <br/> $ {balance} </h1>
 
-            <div className="income-expense">
-                <h2> INCOME <br/> {income} </h2>
-                <h2> EXPENSE <br/> {expense} </h2>
-            </div>
+            <Balance
+            history = {history}
+            />
 
             <div className="history">
                 <h3>History</h3>
+
+                {history.map( (e) => {
+                    return (
+                        <History
+                    text= {e.text}
+                    amount= {e.amount}
+                    key= {key} />
+                    )
+                })}
+
             </div>
 
             <div className="transaction">
@@ -31,7 +38,9 @@ const Account = () => {
                     e.preventDefault();
                     const currentHistory = history.slice();
                     const isIncome = (amount >=0) ? true : false;
-                    const newHistory = currentHistory.concat( {text: text, amount: amount, isIncome: isIncome} );
+                    const newHistory = currentHistory.concat( 
+                        {text: text, amount: amount, isIncome: isIncome, key: key} );
+                    setKey(key+1)
                     setHistory(newHistory);
                     setText("");
                     setAmount("");

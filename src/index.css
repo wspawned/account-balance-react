@@ -6,6 +6,9 @@
 
 body {
   padding: 40px;
+  width: 560px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1 {
@@ -23,4 +26,9 @@ h2 {
 
 label {
   display: block;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-around;
 }
