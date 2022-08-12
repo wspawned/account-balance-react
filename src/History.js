@@ -6,7 +6,9 @@ const History = (props) => {
     return (
       <div className="list-item">
         <p> {props.text} : </p>
-        <p> {amountFixed}  $ </p>
+        <p
+        className= { (+props.amount >= 0 ) ? "amount-income" : "amount-expense"  }
+        > {amountFixed}  $ </p>
       </div>
     );
 }

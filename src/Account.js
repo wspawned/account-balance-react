@@ -88,7 +88,7 @@ const Account = () => {
                     </label>
 
                     <button className="submit"
-                    type="submit"> Add </button>
+                    type="submit"> Add Transaction </button>
                 </form>
             </div>
         </div>
