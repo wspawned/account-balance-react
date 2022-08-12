@@ -8,7 +8,7 @@ const Balance = (props) => {
 
     return (
         <div className="balance-chart">
-            <h1> Your Balance &nbsp; <br/> $ {balance} </h1>
+            <h1> Your Balance &nbsp; <br/> <span className="balance" >  $ {balance} </span>  </h1>
 
             <div className="income-expense">
                 <h2 > INCOME <br/> <span className="income" > {props.income()} </span> </h2>
