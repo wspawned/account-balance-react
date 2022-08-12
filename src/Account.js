@@ -4,7 +4,6 @@ import History from "./History";
 
 const Account = () => {
 
-    const [key, setKey] = useState(0)
     const [text, setText] = useState("");
     const [amount, setAmount] = useState("");
     const [history, setHistory] = useState([]);
@@ -41,12 +40,12 @@ const Account = () => {
             <div className="history">
                 <h3>History</h3>
 
-                {history.map( (e) => {
+                {history.map( (e, index) => {
                     return (
                         <History
                     text= {e.text}
                     amount= {e.amount}
-                    key= {key} />
+                    key= {index} />
                     )
                 })}
 
@@ -61,8 +60,7 @@ const Account = () => {
                     const currentHistory = history.slice();
                     const isIncome = (amount >=0) ? true : false;
                     const newHistory = currentHistory.concat( 
-                        {text: text, amount: amount, isIncome: isIncome, key: key} );
-                    setKey(key+1)
+                        {text: text, amount: amount, isIncome: isIncome} );
                     setHistory(newHistory);
                     setText("");
                     setAmount("");
