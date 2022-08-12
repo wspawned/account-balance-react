@@ -2,7 +2,7 @@
 
 const Balance = (props) => {
 
-    const balance = props.income() + props.expense() ;
+    const balance = (Number(props.income()) - Number(props.expense())).toFixed(2) ;
 
     
 
@@ -12,7 +12,7 @@ const Balance = (props) => {
 
             <div className="income-expense">
                 <h2 > INCOME <br/> {props.income()} </h2>
-                <h2 > EXPENSE <br/> {-(props.expense())} </h2>
+                <h2 > EXPENSE <br/> {props.expense()} </h2>
             </div>
                 
         </div>

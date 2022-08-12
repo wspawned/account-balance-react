@@ -8,6 +8,8 @@ const Account = () => {
     const [amount, setAmount] = useState("");
     const [history, setHistory] = useState([]);
 
+    const reverseHistory = history.slice().reverse();
+
     const calculateIncome = () => {
         let inc = 0;
         for(const move of history) {
@@ -15,7 +17,7 @@ const Account = () => {
                 inc += (+move.amount)
             }
         }
-        return(inc)
+        return( inc.toFixed(2) )
     }
 
     const calculateExpense = () => {
@@ -25,7 +27,7 @@ const Account = () => {
                 exp += (+move.amount)
             }
         }
-        return(exp)
+        return( (exp*(-1)).toFixed(2) )
     }
 
     return ( 
@@ -40,7 +42,7 @@ const Account = () => {
             <div className="history">
                 <h3>History</h3>
 
-                {history.map( (e, index) => {
+                {reverseHistory.map( (e, index) => {
                     return (
                         <History
                     text= {e.text}
@@ -59,8 +61,9 @@ const Account = () => {
                     e.preventDefault();
                     const currentHistory = history.slice();
                     const isIncome = (amount >=0) ? true : false;
+                    const amountFixed = Number(amount).toFixed(2);
                     const newHistory = currentHistory.concat( 
-                        {text: text, amount: amount, isIncome: isIncome} );
+                        {text: text, amount: amountFixed, isIncome: isIncome} );
                     setHistory(newHistory);
                     setText("");
                     setAmount("");
@@ -77,7 +80,7 @@ const Account = () => {
 
                     <label>Amount
                         <input type={"number"}
-                        placeholder= "0"
+                        placeholder= "0.00 $"
                         value={amount}
                         onChange= {(e) => setAmount(e.target.value) }
                         required
