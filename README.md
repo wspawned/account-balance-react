@@ -1,6 +1,3 @@
-history list keylerinde sorun var <br>
-proplar sadece returnde mi çağrılabilir <br>
-input 0ı engelle<br>
-galiba useEffect lazm <br>
+[Deployed project link](https://main.d1kmuyhy2nn4n3.amplifyapp.com/)
 
-<b> toFixed wont work well on negative numbers and need to be used like  <br> (num*(-1)).toFixed(2) <b>
+![image](https://user-images.githubusercontent.com/80424496/185693407-5b33e358-0ae3-48b7-9e52-77a6c79df5d4.png)
